@@ -20,3 +20,11 @@ To install the necessary packages, run the following command:
 
 ```bash
 pip install -r requirements.txt
+```
+
+To run streamlit, run the following command:
+```bash
+streamlit run app_streamlit.py
+```
+
+
