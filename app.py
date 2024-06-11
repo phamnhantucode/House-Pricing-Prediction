@@ -32,14 +32,6 @@ def after_request(response):
 
 def preprocess(data):
     print(data)
-    data['year'] = 2014
-    data['month'] = 5
-    data['sqft_living15'] = 2000
-    data['sqft_lot15'] = 5000
-    data['yr_built'] = 2000
-    data['yr_renovated'] = 0
-    data['sqft_living15_cat'] = 'medium'
-    data['sqft_lot15_cat'] = 'medium'
     data['sqft_lot'] = float(data['sqft_lot'])
     data['sqft_living'] = float(data['sqft_living'])
     data['sqft_above'] = float(data['sqft_above'])
@@ -54,19 +46,6 @@ def preprocess(data):
     if data['grade'] <= 2:
         data['grade'] = 3
 
-    # if (data['lat_cat'] == 'north'):
-    #     data['lat'] = 47.75
-    # else:
-    #     data['lat'] = 47.25
-    data['lat'] = 47.5
-    data['lat_cat'] = 'north'
-
-    # if (data['long_cat'] == 'east'):
-    #     data['long'] = -122.25
-    # else:
-    #     data['long'] = -122.75
-    data['long'] = -122.2
-    data['long_cat'] = 'east'
 
     if (data['sqft_living'] < 1500):
         data['sqft_living_cat'] = 'small'

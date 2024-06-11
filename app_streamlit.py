@@ -28,16 +28,6 @@ grade = st.number_input('Grade', min_value=1, max_value=13, value=7)
 sqft_above = st.number_input('Square footage of house apart from basement', min_value=500, max_value=10000, value=1500)
 sqft_basement = st.number_input('Square footage of the basement', min_value=0, max_value=5000, value=500)
 renovated = st.radio('Renovated', ['Yes', 'No'])
-long_cat = st.radio('Longitude', ['East', 'West'])
-lat_cat = st.radio('Latitude', ['North', 'South'])
-lat = 47.5
-long = -122.2
-sqft_living15 = 2000
-sqft_life15_cat = 'medium'
-sqft_lot15 = 5000
-sqft_lot15_cat = 'medium'
-month = 5
-year = 2014
 
 # Preprocess the data
 if waterfront == 'Yes':
@@ -47,25 +37,13 @@ else:
 
 if renovated == 'Yes':
     renovated = 'renovated'
-    yr_renovated = 2014
 else:
     renovated = 'not renovated'
-    yr_renovated = 0
 
 if sqft_basement > 0:
     basement = 'has basement'
 else:
     basement = 'no basement'
-
-if lat_cat == 'North':
-    lat_cat = 'north'
-else:
-    lat_cat = 'south'
-
-if long_cat == 'East':
-    long_cat = 'east'
-else:
-    long_cat = 'west'
 
 if view == 'Bad':
     view = 0
@@ -135,7 +113,12 @@ else:
     yr_built = 2014
     built_cat = 'new'
 
-data = [{'bedrooms': bedrooms, 'bathrooms': bathrooms, 'sqft_living': sqft_living, 'sqft_lot': sqft_lot, 'floors': floors, 'waterfront': waterfront, 'view': view, 'condition': condition, 'grade': grade, 'sqft_above': sqft_above, 'sqft_basement': sqft_basement, 'renovated_cat': renovated, 'basement_cat': basement, 'lat_cat': lat_cat, 'long_cat': long_cat, 'lat': lat, 'long': long, 'sqft_living15': sqft_living15, 'sqft_living15_cat': sqft_life15_cat, 'sqft_lot15': sqft_lot15, 'sqft_lot15_cat': sqft_lot15_cat, 'month': month, 'year': year, 'yr_built': yr_built, 'yr_renovated': yr_renovated, 'built_cat': built_cat, 'sqft_living_cat': sqft_living_cat, 'sqft_lot_cat': sqft_lot_cat, 'sqft_above_cat': sqft_above_cat, 'sqft_basement_cat': sqft_basement_cat}]
+data = [
+    {'bedrooms': bedrooms, 'bathrooms': bathrooms, 'sqft_living': sqft_living, 'sqft_lot': sqft_lot, 'floors': floors,
+     'waterfront': waterfront, 'view': view, 'condition': condition, 'grade': grade, 'sqft_above': sqft_above,
+     'sqft_basement': sqft_basement, 'renovated_cat': renovated, 'basement_cat': basement, 'built_cat': built_cat,
+     'sqft_living_cat': sqft_living_cat, 'sqft_lot_cat': sqft_lot_cat, 'sqft_above_cat': sqft_above_cat,
+     'sqft_basement_cat': sqft_basement_cat}]
 
 input_df = pd.DataFrame(data)
 
